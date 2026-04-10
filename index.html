@@ -1,147 +1,471 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HumainCertifié — La preuve que c'est vous</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafaf8; color: #1a1a1a; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumainCertifié — La preuve que c'est vous</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; background: #fff; border-bottom: 1px solid #f0f0ee; }
-  .logo { display: flex; align-items: center; gap: 10px; }
-  .logo-icon { width: 36px; height: 36px; }
-  .logo-text { font-size: 16px; font-weight: 600; color: #1a1a1a; }
-  .logo-text span { color: #1D9E75; }
-  .nav-badge { font-size: 12px; background: #E1F5EE; color: #0F6E56; padding: 4px 12px; border-radius: 99px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+    }
 
-  .hero { text-align: center; padding: 5rem 1.5rem 3rem; max-width: 600px; margin: 0 auto; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; background: #E1F5EE; color: #0F6E56; padding: 5px 14px; border-radius: 99px; margin-bottom: 1.5rem; }
-  .pulse { width: 7px; height: 7px; border-radius: 50%; background: #1D9E75; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-  h1 { font-size: 46px; font-weight: 700; line-height: 1.15; color: #1a1a1a; margin-bottom: 1.2rem; letter-spacing: -1px; }
-  h1 em { font-style: normal; color: #1D9E75; }
-  .hero-sub { font-size: 17px; color: #666; line-height: 1.7; max-width: 460px; margin: 0 auto 2.5rem; }
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: #fff;
+      border-bottom: 1px solid #f0f0ee;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .logo-text span { color: #1D9E75; }
+    .nav-badge {
+      font-size: 12px;
+      background: #E1F5EE;
+      color: #0F6E56;
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
 
-  .counter-wrap { display: inline-block; background: #fff; border: 1px solid #ebebeb; border-radius: 16px; padding: 1.2rem 2.5rem; margin-bottom: 2.5rem; }
-  .counter-num { font-size: 40px; font-weight: 700; color: #1a1a1a; line-height: 1; }
-  .counter-label { font-size: 13px; color: #888; margin-top: 4px; }
-  .progress-bar { width: 180px; height: 4px; background: #f0f0ee; border-radius: 99px; margin: 12px auto 0; }
-  .progress-fill { height: 4px; background: #1D9E75; border-radius: 99px; width: 47%; }
-  .progress-note { font-size: 11px; color: #aaa; margin-top: 6px; }
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      background: #E1F5EE;
+      color: #0F6E56;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1D9E75;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1.5px;
+    }
+    h1 em {
+      font-style: normal;
+      color: #1D9E75;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: #666;
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 2.5rem;
+    }
 
-  .cta-btn { display: inline-block; background: #1D9E75; color: #fff; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 12px; text-decoration: none; margin-bottom: 14px; transition: background 0.2s; }
-  .cta-btn:hover { background: #0F6E56; }
-  .cta-note { font-size: 13px; color: #999; }
-  .cta-note strong { color: #1D9E75; }
+    /* COUNTER */
+    .counter-wrap {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 1.4rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .counter-num {
+      font-size: 44px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .counter-label {
+      font-size: 13px;
+      color: #999;
+      margin-top: 4px;
+    }
+    .progress-bar {
+      width: 200px;
+      height: 5px;
+      background: #f0f0ee;
+      border-radius: 99px;
+      margin: 12px auto 0;
+    }
+    .progress-fill {
+      height: 5px;
+      background: #1D9E75;
+      border-radius: 99px;
+      transition: width 0.5s ease;
+    }
+    .progress-note {
+      font-size: 11px;
+      color: #bbb;
+      margin-top: 6px;
+    }
 
-  .perks { display: flex; flex-direction: column; gap: 10px; max-width: 340px; margin: 2.5rem auto 0; text-align: left; }
-  .perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
-  .perk-check { width: 20px; height: 20px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .perk-check svg { width: 10px; height: 10px; }
+    /* BOUTON */
+    .cta-btn {
+      display: inline-block;
+      background: #1D9E75;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 44px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .cta-btn:hover { background: #0F6E56; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+    .cta-note {
+      display: block;
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 8px;
+    }
+    .cta-note strong { color: #1D9E75; }
 
-  .how { padding: 4rem 1.5rem; max-width: 700px; margin: 0 auto; text-align: center; }
-  .section-label { font-size: 12px; font-weight: 600; color: #1D9E75; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-  .how h2 { font-size: 30px; font-weight: 700; color: #1a1a1a; margin-bottom: 2.5rem; letter-spacing: -0.5px; }
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
-  .step { background: #fff; border: 1px solid #ebebeb; border-radius: 16px; padding: 1.5rem 1rem; }
-  .step-num { width: 32px; height: 32px; border-radius: 50%; background: #E1F5EE; color: #0F6E56; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
-  .step-title { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
-  .step-body { font-size: 13px; color: #888; line-height: 1.5; }
+    /* PERKS */
+    .perks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 320px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+    .perk-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #E1F5EE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  .proof { background: #fff; border-top: 1px solid #f0f0ee; border-bottom: 1px solid #f0f0ee; padding: 2rem 1.5rem; }
-  .proof-inner { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; max-width: 500px; margin: 0 auto; }
-  .proof-item { text-align: center; }
-  .proof-num { font-size: 28px; font-weight: 700; color: #1a1a1a; }
-  .proof-label { font-size: 13px; color: #888; margin-top: 2px; }
+    /* PROOF BAR */
+    .proof {
+      background: #fff;
+      border-top: 1px solid #f0f0ee;
+      border-bottom: 1px solid #f0f0ee;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .proof-inner {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .proof-item { text-align: center; }
+    .proof-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+    .proof-label {
+      font-size: 13px;
+      color: #999;
+      margin-top: 2px;
+    }
 
-  .pricing { padding: 4rem 1.5rem; max-width: 700px; margin: 0 auto; text-align: center; }
-  .pricing h2 { font-size: 30px; font-weight: 700; color: #1a1a1a; margin-bottom: 2rem; letter-spacing: -0.5px; }
-  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-  .plan { background: #fff; border: 1px solid #ebebeb; border-radius: 16px; padding: 1.5rem 1rem; }
-  .plan.featured { border: 2px solid #1D9E75; }
-  .plan-badge { font-size: 11px; background: #E1F5EE; color: #0F6E56; padding: 3px 10px; border-radius: 99px; display: inline-block; margin-bottom: 10px; }
-  .plan-name { font-size: 13px; color: #888; margin-bottom: 8px; }
-  .plan-price { font-size: 28px; font-weight: 700; color: #1a1a1a; }
-  .plan-period { font-size: 13px; color: #888; font-weight: 400; }
-  .plan-desc { font-size: 12px; color: #888; margin-top: 10px; line-height: 1.6; }
-  .plan-desc strong { color: #1D9E75; }
+    /* HOW */
+    .how {
+      padding: 4rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1D9E75;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .how h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.5px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 14px;
+    }
+    .step {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E1F5EE;
+      color: #0F6E56;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .step-body {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.5;
+    }
 
-  .final-cta { text-align: center; padding: 4rem 1.5rem; background: #1D9E75; }
-  .final-cta h2 { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-  .final-cta p { font-size: 15px; color: #9FE1CB; margin-bottom: 2rem; }
-  .cta-btn-white { display: inline-block; background: #fff; color: #1D9E75; font-size: 16px; font-weight: 700; padding: 16px 40px; border-radius: 12px; text-decoration: none; }
+    /* PRICING */
+    .pricing {
+      padding: 4rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      background: #f5f5f3;
+    }
+    .pricing h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .plan {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 1.5rem 1.2rem;
+      text-align: left;
+    }
+    .plan.featured {
+      border: 2px solid #1D9E75;
+    }
+    .plan-badge {
+      font-size: 11px;
+      background: #E1F5EE;
+      color: #0F6E56;
+      padding: 3px 10px;
+      border-radius: 99px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .plan-name {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .plan-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .plan-period {
+      font-size: 13px;
+      color: #999;
+      font-weight: 400;
+    }
+    .plan-desc {
+      font-size: 13px;
+      color: #888;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .plan-desc strong { color: #1D9E75; font-weight: 700; }
 
-  footer { text-align: center; padding: 2rem; font-size: 12px; color: #bbb; }
+    /* FINAL CTA */
+    .final-cta {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: #1D9E75;
+    }
+    .final-cta h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+    .final-cta p {
+      font-size: 16px;
+      color: #9FE1CB;
+      margin-bottom: 2rem;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background: #fff;
+      color: #1D9E75;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 44px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cta-btn-white:hover { opacity: 0.92; }
 
-  @media (max-width: 600px) {
-    h1 { font-size: 32px; }
-    .proof-inner { gap: 1.5rem; }
-  }
-</style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 12px;
+      color: #bbb;
+      background: #fff;
+      border-top: 1px solid #f0f0ee;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 34px; }
+      .proof-inner { gap: 1.5rem; }
+      .cta-btn, .cta-btn-white { padding: 14px 28px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo">
-    <svg class="logo-icon" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-      <rect width="36" height="36" rx="10" fill="#1D9E75"/>
-      <circle cx="18" cy="13" r="6" fill="#fff" opacity="0.95"/>
-      <rect x="11" y="20" width="14" height="10" rx="4" fill="#fff" opacity="0.95"/>
-      <rect x="13" y="19" width="10" height="5" fill="#fff" opacity="0.95"/>
-      <circle cx="27" cy="27" r="6" fill="#0F6E56"/>
-      <path d="M24 27 L26 29 L30 24" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+      <circle cx="16" cy="12" r="5" fill="white" opacity="0.95"/>
+      <rect x="10" y="18" width="12" height="9" rx="3" fill="white" opacity="0.95"/>
+      <rect x="12" y="17" width="8" height="4" fill="white" opacity="0.95"/>
+      <circle cx="24" cy="24" r="5" fill="#0F6E56"/>
+      <path d="M21.5 24 L23.5 26 L26.5 21.5" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <span class="logo-text">Humain<span>Certifié</span></span>
   </div>
   <span class="nav-badge">Lancement — Avril 2026</span>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge"><div class="pulse"></div>Early access — 150 places maximum</div>
+  <div class="hero-badge">
+    <div class="pulse"></div>
+    Early access — 150 places maximum
+  </div>
   <h1>Prouve que tu as<br>écrit <em>toi-même.</em></h1>
   <p class="hero-sub">Le premier outil qui certifie qu'un texte est 100% humain — sans IA, sans copier-coller. Un QR code vérifiable par ton recruteur ou ton prof.</p>
 
   <div class="counter-wrap">
     <div class="counter-num" id="counter">47</div>
     <div class="counter-label">places prises sur 150</div>
-    <div class="progress-bar"><div class="progress-fill" id="fill" style="width:31.3%"></div></div>
-    <div class="progress-note">103 places restantes — early access à 9€</div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="fill" style="width: 31.3%;"></div>
+    </div>
+    <div class="progress-note" id="note">103 places restantes — early access à 9€</div>
   </div>
 
   <br>
   <a href="https://buy.stripe.com/aFaeVc7ot09Ogz7efA1wY00" class="cta-btn">Rejoindre en early access — 9€</a>
-  <br>
-  <span class="cta-note">Prix bloqué à vie. <strong>3 certificats offerts</strong> le premier mois.</span>
+  <span class="cta-note">Prix bloqué à vie. <strong>5 certificats offerts</strong> le premier mois.</span>
 
   <div class="perks">
     <div class="perk">
-      <div class="perk-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="perk-check">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       Accès prioritaire avant l'ouverture publique
     </div>
     <div class="perk">
-      <div class="perk-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="perk-check">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       Prix bloqué à 9€ — jamais augmenté pour toi
     </div>
     <div class="perk">
-      <div class="perk-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      3 certificats offerts le premier mois
+      <div class="perk-check">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      5 certificats offerts le premier mois
     </div>
     <div class="perk">
-      <div class="perk-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="perk-check">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       Ton feedback influence les fonctionnalités
     </div>
   </div>
 </section>
 
+<!-- PROOF -->
 <section class="proof">
   <div class="proof-inner">
-    <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Humain garanti</div></div>
-    <div class="proof-item"><div class="proof-num">24h</div><div class="proof-label">Délai de livraison</div></div>
-    <div class="proof-item"><div class="proof-num">QR code</div><div class="proof-label">Vérifiable par tous</div></div>
+    <div class="proof-item">
+      <div class="proof-num">100%</div>
+      <div class="proof-label">Humain garanti</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">0</div>
+      <div class="proof-label">Copier-coller possible</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">QR code</div>
+      <div class="proof-label">Vérifiable par tous</div>
+    </div>
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
 <section class="how">
   <div class="section-label">Comment ça marche</div>
   <h2>En 4 étapes simples</h2>
@@ -149,7 +473,7 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-title">Tu écris</div>
-      <div class="step-body">Tu tapes ton texte dans notre éditeur sécurisé — copier-coller bloqué</div>
+      <div class="step-body">Tu tapes ton texte dans notre éditeur sécurisé — copier-coller totalement bloqué</div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
@@ -164,11 +488,12 @@
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-title">Preuve vérifiable</div>
-      <div class="step-body">Ton recruteur scanne → il voit que c'est 100% humain, infalsifiable</div>
+      <div class="step-body">Ton recruteur ou prof scanne et voit la preuve en temps réel — infalsifiable</div>
     </div>
   </div>
 </section>
 
+<!-- PRICING -->
 <section class="pricing">
   <div class="section-label">Tarifs</div>
   <h2>Choisis ton plan</h2>
@@ -176,46 +501,62 @@
     <div class="plan">
       <div class="plan-name">Étudiant</div>
       <div class="plan-price">9€<span class="plan-period">/mois</span></div>
-      <div class="plan-desc"><strong>5 certificats</strong>/mois<br>Dissertations, rapports<br>QR code inclus</div>
+      <div class="plan-desc">
+        <strong>5 certificats</strong> par mois<br>
+        Dissertations, rapports<br>
+        QR code inclus
+      </div>
     </div>
     <div class="plan featured">
       <div class="plan-badge">Populaire</div>
       <div class="plan-name">Candidat</div>
       <div class="plan-price">20€<span class="plan-period">/mois</span></div>
-      <div class="plan-desc"><strong>10 certificats</strong>/mois<br>Lettres de motivation<br>QR code inclus</div>
+      <div class="plan-desc">
+        <strong>10 certificats</strong> par mois<br>
+        Lettres de motivation, CV<br>
+        QR code inclus
+      </div>
     </div>
     <div class="plan">
       <div class="plan-name">Pro</div>
       <div class="plan-price">49€<span class="plan-period">/mois</span></div>
-      <div class="plan-desc"><strong>Illimité</strong><br>Contenus, articles<br>Label site web inclus</div>
+      <div class="plan-desc">
+        <strong>Illimité</strong><br>
+        Contenus, articles, blog<br>
+        Label site web inclus
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Prêt à prouver que c'est toi ?</h2>
-  <p>Rejoins les premiers membres. Prix bloqué à vie.</p>
-  <a href="https://buy.stripe.com/aFaeVc7ot09Ogz7efA1wY00" class="cta-btn-white">Rejoindre — 9€ une fois</a>
+  <p>Rejoins les 150 premiers membres. Prix bloqué à vie.</p>
+  <a href="https://buy.stripe.com/aFaeVc7ot09Ogz7efA1wY00" class="cta-btn-white">Rejoindre en early access — 9€</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © 2026 HumainCertifié — La preuve que c'est vous.
-  <br><br>
-  <span style="font-size:11px; color:#ccc;">HumainCertifié certifie uniquement que le texte a été saisi manuellement dans l'application. L'utilisateur est seul responsable de l'originalité et de l'authenticité du contenu.</span>
+  © 2026 HumainCertifié — La preuve que c'est vous.<br>
+  <span style="font-size: 11px;">HumainCertifié certifie uniquement que le texte a été saisi manuellement dans l'application. L'utilisateur est seul responsable de l'originalité et de l'authenticité du contenu.</span>
 </footer>
 
 <script>
-  let n = 47;
+  var n = 47;
+  var max = 150;
+
   function tick() {
-    if (Math.random() > 0.7 && n < 150) {
+    if (Math.random() > 0.65 && n < max) {
       n++;
       document.getElementById('counter').textContent = n;
-      const pct = (n / 150) * 100;
-      document.getElementById('fill').style.width = pct.toFixed(1) + '%';
-      document.querySelector('.progress-note').textContent = (150 - n) + ' places restantes — early access à 9€';
+      var pct = ((n / max) * 100).toFixed(1);
+      document.getElementById('fill').style.width = pct + '%';
+      document.getElementById('note').textContent = (max - n) + ' places restantes — early access à 9€';
     }
-    setTimeout(tick, Math.random() * 30000 + 15000);
+    setTimeout(tick, Math.random() * 25000 + 10000);
   }
+
   tick();
 </script>
 
